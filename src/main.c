@@ -3,15 +3,10 @@
 #include <time.h>
 #include <ctype.h>
 #ifdef WIN32
-#include "getopt.h"
+#include "getopt_win.h"
 #else
 #include <unistd.h>
 #include <getopt.h>
-extern char *optarg;
-extern int opterr;
-extern int optind;
-extern int optopt;
-int getopt(int argc, char * const argv[], const char *optstring);
 #endif
 
 #include "gauth.h"
@@ -56,7 +51,7 @@ int main (int argc, char **argv){
        secret = argv[index];
 
      if(!secret || strlen(secret) < 2){
-         fprintf(stderr, "Secret is too short");
+         fprintf(stderr, "Secret is too short\n");
          return 1;
      }
 
