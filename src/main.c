@@ -1,8 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "gauth.h"
+#include <ctype.h>
+#ifdef WIN32
 #include "getopt.h"
+#else
+#include <unistd.h>
+#include <getopt.h>
+extern char *optarg;
+extern int opterr;
+extern int optind;
+extern int optopt;
+int getopt(int argc, char * const argv[], const char *optstring);
+#endif
+
+#include "gauth.h"
 
 
 static void usage(FILE* fp) {

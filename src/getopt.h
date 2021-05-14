@@ -15,7 +15,7 @@
    You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
    <http://www.gnu.org/licenses/>.  */
-
+#ifdef WIN32
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include <tchar.h>
@@ -166,3 +166,4 @@ extern int getopt_long_only (int ___argc, TCHAR *const *___argv,
 #undef __need_getopt
 
 
+#endif
