@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include <stdlib.h>
+#include <ctype.h>
+#ifdef _WIN32
+#include "getopt_win.h"
+#else
+#include <unistd.h>
+#include <getopt.h>
+#endif
+
 #include "gauth.h"
-#include "getopt.h"
 
 
 static void usage(FILE* fp) {
@@ -44,12 +50,12 @@ int main (int argc, char **argv){
         secret = argv[index];
 
     if(!secret || strlen(secret) < 2){
-        fprintf(stderr, "Secret is too short");
+         fprintf(stderr, "Secret is too short\n");
         return 1;
     }
 
-    const unsigned long tm = time(NULL) / step_sec;
+    const unsigned long tm = (const unsigned long)time(NULL) / step_sec;
     int totp = generateCode(secret, tm);
-    fprintf(stdout, "%06d", totp);
+    fprintf(stdout, "%06d\n", totp);
     return 0;
 }

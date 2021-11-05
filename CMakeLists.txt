@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 1.0.0)
 
 project(gauthenticator-cli)
 
-file(GLOB_RECURSE SOURCE_FILES *.c *.h)
+file(GLOB_RECURSE SOURCE_FILES src/*.c src/*.h)
 
 include_directories("/usr/local/include" ${PROJECT_SOURCE_DIR}/src)
 

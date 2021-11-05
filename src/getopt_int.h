@@ -15,7 +15,7 @@
    You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
    <http://www.gnu.org/licenses/>.  */
-
+#ifdef _WIN32
 #ifndef _GETOPT_INT_H
 #define _GETOPT_INT_H	1
 
@@ -127,3 +127,4 @@ extern int _getopt_long_only_r (int ___argc, TCHAR *const *___argv,
 				struct _getopt_data *__data);
 
 #endif /* getopt_int.h */
+#endif

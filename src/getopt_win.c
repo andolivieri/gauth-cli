@@ -1,4 +1,5 @@
 /* Getopt for Microsoft C
+ *
 This code is a modification of the Free Software Foundation, Inc.
 Getopt library for parsing command line argument the purpose was
 to provide a Microsoft Visual C friendly derivative. This code
@@ -35,6 +36,7 @@ Getopt for GNU.
    You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
    <http://www.gnu.org/licenses/>.  */
+#ifdef _WIN32
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -63,7 +65,7 @@ Getopt for GNU.
    GNU application programs can use a third alternative mode in which
    they can distinguish the relative order of options and other arguments.  */
 
-#include "getopt.h"
+#include "getopt_win.h"
 #include "getopt_int.h"
 
 /* For communication from `getopt' to the caller.
@@ -1165,4 +1167,4 @@ __posix_getopt (int argc, TCHAR *const *argv, const TCHAR *optstring)
 
 #endif	/* Not ELIDE_CODE.  */
 
-
+#endif

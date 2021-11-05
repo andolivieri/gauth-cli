@@ -14,7 +14,7 @@
 int generateCode(const char *key, unsigned long tm) {
   uint8_t challenge[8];
   for (int i = 8; i--; tm >>= 8) {
-    challenge[i] = tm;
+    challenge[i] = (uint8_t)tm;
   }
 
   // Estimated number of bytes needed to represent the decoded secret. Because
